@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Code-like font */
+    background-color: #121212; /* Dark charcoal background */
+    color: #e0e0e0; /* Light gray text */
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    overflow: auto; /* Hide overflow for matrix effect */
+    position: relative; /* Ensure body content is above the matrix */
+    z-index: 1; /* Set a higher z-index for body content */
+}
+
+header {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space between profile and contact info */
+    background-color: #1f1f1f; /* Slightly lighter charcoal for header */
+    padding: 20px;
+    border-bottom: 1px solid #333333; /* Subtle gray border */
+    position: relative;
+}
+
+.profile-details {
+    flex-grow: 1; /* Allow profile details to take up remaining space */
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    background-color: #82c9ff; /* Soft pastel blue background */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px; /* Add space between photo and text */
+    margin-top: -10px; /* Adjust margin-top to align with the text */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.1); /* Slightly enlarge the photo on hover */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #82c9ff; /* Soft pastel blue for title */
+    font-weight: bold;
+    margin-bottom: 0; /* Remove margin-bottom to bring elements closer */
+}
+
+.console-line {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 5px;
+    margin-top: 0; /* Remove margin-top to bring elements closer */
+    color: #82c9ff; /* Soft pastel blue text for console lines */
+}
+
+.contact-info {
+    text-align: right;
+    color: #e0e0e0; /* Light gray text */
+    position: relative; /* Use relative positioning */
+    top: 0; /* Align with the top of the header */
+    right: 0; /* Align with the right side of the header */
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin-bottom: 5px;
+}
+
+.contact-info a {
+    color: #82c9ff; /* Soft pastel blue color for links */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 10px auto;
+}
+
+.section {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: 0.5s; /* Delay to allow for staggered animations */
+    padding: 20px 0; /* Remove background and reduce padding */
+}
+
+h2 {
+    color: #b0bec5; /* Soft gray-blue for section headings */
+    font-size: 2rem;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.section ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+    color: #e0e0e0; /* Light gray text for list items */
+}
+
+.section ul li {
+    margin-bottom: 0px;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeIn 0.5s ease forwards;
+    padding: 5px 0; /* Remove background and reduce padding */
+}
+
+.section ul li:before {
+    content: '•'; /* Bullet point symbol */
+    color: #4CAF50; /* Green color */
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/* Colors for individual items */
+.section ul li strong {
+    color: #ffa500; /* Orange color for key terms */
+}
+
+.section ul li .date {
+    color: #aaa;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.section ul li .job-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #b0bec5; /* Soft gray-blue for job titles */
+    margin-bottom: 5px;
+}
+
+.section ul li ul {
+    padding-left: 30px;
+    font-size: 1.1rem;
+    color: #dcdcdc; /* Light gray for nested list items */
+}
+
+.section ul li code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #444;
+    color: #fff;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+a {
+    color: #82c9ff; /* Soft pastel blue color for links */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4CAF50; /* Change to green on hover */
+    text-decoration: underline;
+}
+
+/* Add these new styles */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid #4CAF50;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4CAF50 }
+}
+
+.skill-bar {
+    width: 100%;
+    height: 15px; /* Reduced height */
+    background-color: #444;
+    border-radius: 8px; /* Slightly smaller border radius */
+    margin: 5px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A); /* Gradient effect */
+    border-radius: 8px;
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.skill-label {
+    position: absolute;
+    right: 5px; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.75rem; /* Smaller font size */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.console-line::before {
+    content: '> ';
+    color: #4CAF50;
+}
+
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure matrix is behind all content */
+    overflow: hidden;
+}
+
+.matrix span {
+    color: #0F0;
+    font-size: 16px;
+    white-space: nowrap;
+    display: inline-block;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
