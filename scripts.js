@@ -49,4 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
             skillsSection.style.display = 'none';
         }
     });
+
+    // Typing effect adjustment
+    const typingEffect = document.querySelector('.typing-effect');
+    const text = typingEffect.textContent;
+    typingEffect.textContent = '';
+
+    let index = 0;
+    function type() {
+        if (index < text.length) {
+            typingEffect.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 100); // Adjust typing speed here
+        } else {
+            // Ensure the cursor stops at the end of the text
+            typingEffect.style.borderRight = '2px solid #82c9ff';
+        }
+    }
+
+    type();
 }); 

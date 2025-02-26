@@ -24,19 +24,21 @@ header {
     padding: 20px;
     border-bottom: 1px solid #333333; /* Subtle gray border */
     position: relative;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .profile-details {
     flex-grow: 1; /* Allow profile details to take up remaining space */
+    min-width: 200px; /* Ensure minimum width for smaller screens */
 }
 
 .profile-photo {
-    width: 120px;
-    height: 120px;
+    width: 80px; /* Smaller photo for mobile */
+    height: 80px; /* Smaller photo for mobile */
     background-color: #82c9ff; /* Soft pastel blue background */
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 20px; /* Add space between photo and text */
+    margin-right: 10px; /* Adjusted margin */
     margin-top: -10px; /* Adjust margin-top to align with the text */
 }
 
@@ -71,6 +73,7 @@ header h1 {
     position: relative; /* Use relative positioning */
     top: 0; /* Align with the top of the header */
     right: 0; /* Align with the right side of the header */
+    min-width: 150px; /* Ensure minimum width for smaller screens */
 }
 
 .contact-info ul {
@@ -188,21 +191,16 @@ a:hover {
 
 /* Add these new styles */
 .typing-effect {
-    overflow: hidden;
-    border-right: 2px solid #4CAF50;
-    white-space: nowrap;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
     display: inline-block;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    border-right: 2px solid #82c9ff; /* Cursor color */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #4CAF50 }
+    from, to { border-color: transparent; }
+    50% { border-color: #82c9ff; }
 }
 
 .skill-bar {
@@ -277,5 +275,22 @@ a:hover {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center text */
+    }
+
+    .contact-info {
+        text-align: center; /* Center align contact info */
+        margin-top: 10px; /* Add margin for spacing */
+    }
+
+    .profile-photo {
+        margin-bottom: 10px; /* Add margin for spacing */
     }
 } 
