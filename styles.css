@@ -138,15 +138,14 @@ h2 {
 }
 
 .section ul li:before {
-    content: '•'; /* Bullet point symbol */
-    color: #4CAF50; /* Green color */
+    content: '•';
+    color: var(--secondary-color);
     font-size: 1.5rem;
     margin-right: 10px;
 }
 
-/* Colors for individual items */
 .section ul li strong {
-    color: #ffa500; /* Orange color for key terms */
+    color: var(--highlight-color);
 }
 
 .section ul li .date {
@@ -154,24 +153,24 @@ h2 {
     font-size: 1rem;
     font-style: italic;
     margin-bottom: 0px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-family);
 }
 
 .section ul li .job-title {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #b0bec5; /* Soft gray-blue for job titles */
+    color: var(--job-title-color);
     margin-bottom: 5px;
 }
 
 .section ul li ul {
     padding-left: 30px;
     font-size: 1.1rem;
-    color: #dcdcdc; /* Light gray for nested list items */
+    color: #dcdcdc;
 }
 
 .section ul li code {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-family);
     background-color: #444;
     color: #fff;
     padding: 3px 6px;
@@ -179,21 +178,20 @@ h2 {
 }
 
 a {
-    color: #82c9ff; /* Soft pastel blue color for links */
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #4CAF50; /* Change to green on hover */
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
-/* Add these new styles */
 .typing-effect {
     display: inline-block;
-    border-right: 2px solid #82c9ff; /* Cursor color */
+    border-right: 2px solid var(--primary-color);
     white-space: nowrap;
     overflow: hidden;
     animation: blink-caret 0.75s step-end infinite;
@@ -201,7 +199,7 @@ a:hover {
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #82c9ff; }
+    50% { border-color: var(--primary-color); }
 }
 
 @keyframes fadeIn {
@@ -213,7 +211,7 @@ a:hover {
 
 .console-line::before {
     content: '> ';
-    color: #4CAF50;
+    color: var(--secondary-color);
 }
 
 .matrix {
@@ -265,4 +263,13 @@ a:hover {
     .profile-photo {
         margin-bottom: 10px; /* Add margin for spacing */
     }
+}
+
+:root {
+    --primary-color: #82c9ff;
+    --secondary-color: #4CAF50;
+    --text-color: #e0e0e0;
+    --highlight-color: #ffa500;
+    --job-title-color: #b0bec5;
+    --font-family: 'Courier New', Courier, monospace;
 } 

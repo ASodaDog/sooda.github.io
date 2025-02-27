@@ -29,9 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 drops[index]++;
             }
         });
+        requestAnimationFrame(drawMatrix);
     }
 
-    setInterval(drawMatrix, 50);
+    requestAnimationFrame(drawMatrix);
 
     // Example: Toggle visibility of a section
     const toggleButton = document.createElement('button');
@@ -62,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             index++;
             setTimeout(type, 100); // Adjust typing speed here
         } else {
-            // Ensure the cursor stops at the end of the text
-            typingEffect.style.borderRight = '2px solid #82c9ff';
+            typingEffect.style.borderRight = '2px solid var(--primary-color)';
         }
     }
 
